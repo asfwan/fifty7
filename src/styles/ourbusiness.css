@@ -1,0 +1,86 @@
+.our-business-section {
+  position: relative;
+  background-image: url(/Users/azuin/Desktop/Awin/Codingpractice/Garrison_Test/fiftyseven-sg/public/Images/OurBusiness/mainentrance.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  padding: 8rem 0;
+  overflow: hidden;
+}
+
+/* Scoped styles for this section only */
+.our-business-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+
+.our-business-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.our-business-section .section-subtitle {
+  font-size: 0.9rem;
+  font-weight: bold;
+  font-style: serif;
+  color: #bfa15a;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.our-business-section .section-title {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.our-business-section .section-desc {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  color: #f0f0f0;
+}
+
+/* Business list */
+.our-business-section .business-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  border-left: 2px solid #bfa15a;
+  padding-left: 1.5rem;
+}
+
+.our-business-section .business-item a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Lato", sans-serif;
+  font-size: 1.1rem;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  width: 100%;
+  transition: color 0.3s ease, transform 0.3s ease;
+  
+}
+
+.our-business-section .business-item:hover a {
+  color: #bfa15a;
+  transform: translateX(6px);
+}
+
+.our-business-section .arrow {
+  font-size: 1.2rem;
+  color: #bfa15a;
+}
+
+

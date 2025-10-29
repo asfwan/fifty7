@@ -1,0 +1,90 @@
+.account-page {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.account-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.account-form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.account-form label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.account-form input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #bfa15a;
+  border-radius: 6px;
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+.account-form input:focus {
+  border-color: #a68d4f;
+}
+
+.account-submit-btn {
+  background-color: #bfa15a;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.account-submit-btn:hover {
+  background-color: #a68d4f;
+}
+
+.social-login {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.social-login p {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.social-btn {
+  margin: 0.25rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #bfa15a;
+  border-radius: 6px;
+  background: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.social-btn:hover {
+  background-color: #bfa15a;
+  color: #fff;
+}
+
+.social-btn.google {
+  border-color: #db4437;
+}
+
+.social-btn.facebook {
+  border-color: #4267B2;
+}

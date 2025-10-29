@@ -1,0 +1,90 @@
+.booking-form-container {
+  position: absolute;
+  bottom: 1rem; /* bring form closer to hero content */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 1200px;
+  background: rgba(255, 255, 255, 0.85); /* slight transparency */
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem 2rem;
+  z-index: 20;
+}
+
+
+/* Responsive tweak */
+@media (max-width: 768px) {
+  .booking-form-container {
+    position: relative;
+    bottom: 0;
+    transform: none;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+.booking-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  align-items: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-family: "Playfair Display", serif;
+  color: #333;
+  margin-bottom: 0.4rem;
+}
+
+.form-group input,
+.form-group select {
+  border: 1px solid #bfa15a;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  font-family: "Playfair Display", serif;
+  color: #333;
+  background: rgba(255, 255, 255, 0.95); /* slightly more opaque input fields */
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #bfa15a;
+  box-shadow: 0 0 0 2px rgba(191, 161, 90, 0.2);
+}
+
+.check-rates-btn {
+  background-color: #bfa15a;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.check-rates-btn:hover {
+  background-color: #a68d4f;
+}
+
+@media (max-width: 768px) {
+  .booking-form-container {
+    position: relative;
+    bottom: 0;
+    transform: none;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 4rem; /* gap for mobile layout */
+  }
+}

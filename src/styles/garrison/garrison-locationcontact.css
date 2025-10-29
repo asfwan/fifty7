@@ -1,0 +1,154 @@
+/* ===== Garrison Location & Contact (Premium Style) ===== */
+
+.garrison-location-contact-section {
+  padding: 80px 0;
+  background: white;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-header h2 {
+  font-family: 'Playfair Display', serif;
+  color: #63100d;
+  font-size: 2.8rem;
+  letter-spacing: 0.5px;
+}
+
+.section-header p {
+  margin-top: 10px;
+  color: #444;
+  font-size: 1.05rem;
+}
+
+.location-contact-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+}
+
+/* Map */
+.map-placeholder {
+  border-radius: 15px;
+  overflow: hidden;
+  height: 380px;
+  position: relative;
+}
+
+.map-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.map-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(99, 16, 13, 0.9);
+  padding: 15px 10px;
+  color: white;
+  text-align: center;
+}
+
+.direction-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.direction-btn {
+  background: white;
+  border: 2px solid #63100d;
+  color: #63100d;
+  border-radius: 25px;
+  padding: 10px 18px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.direction-btn:hover {
+  background: #63100d;
+  color: white;
+}
+
+/* Contact Info */
+.contact-info {
+  background: #f8f3e7;
+  padding: 35px 30px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.contact-item h5 {
+  font-family: 'Playfair Display', serif;
+  color: #63100d;
+  font-size: 1.15rem;
+  margin-bottom: 5px;
+}
+
+.contact-item p {
+  margin: 0;
+  color: #555;
+  line-height: 1.5;
+}
+
+.social-section {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.social-buttons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.social-btn {
+  border: 2px solid #63100d;
+  border-radius: 25px;
+  padding: 8px 20px;
+  text-decoration: none;
+  color: #63100d;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: 0.3s;
+}
+
+.social-btn:hover {
+  background: #63100d;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .location-contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .map-placeholder {
+    height: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .direction-buttons {
+    flex-direction: column;
+  }
+
+  .social-buttons {
+    flex-direction: column;
+  }
+}

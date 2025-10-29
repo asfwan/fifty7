@@ -1,0 +1,119 @@
+.garrison-hero-banner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Angsana New', 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #000;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* Scrolling Text */
+.scrolling-text {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  background: #63100d;
+  color: #fff;
+  padding: 10px 0;
+  z-index: 10;
+  overflow: hidden;
+  margin: 0;
+}
+
+.scrolling-content {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scrollText 20s linear infinite;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+@keyframes scrollText {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Carousel */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  margin: 0;
+}
+
+/* WhatsApp Floating Icon */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+}
+
+.whatsapp-link img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-link:hover img {
+  transform: scale(1.1);
+}
+
+/* Mobile Fixes */
+@media (max-width: 768px) {
+  .garrison-hero-banner {
+    height: -webkit-fill-available;
+    min-height: 100dvh;
+  }
+  .carousel-slide img {
+    height: 100%;
+  }
+}
+
+/* Safari Fix */
+@supports (-webkit-touch-callout: none) {
+  .garrison-hero-banner {
+    height: -webkit-fill-available !important;
+    min-height: 100dvh !important;
+  }
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  background-color: #000;
+  transform: translateZ(0); /* Forces GPU acceleration */
+  will-change: transform; /* Optimizes rendering */
+}

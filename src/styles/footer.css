@@ -1,0 +1,108 @@
+.footer-section {
+  background: linear-gradient(to bottom, #421212 0%, #63100d 100%);
+  padding: 80px 0 40px; /* balanced top/bottom spacing */
+  color: #fff;
+  margin: 0;
+  border: none;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+
+  /* Remove visual gap with previous section */
+  margin-top: -1px;
+  z-index: 1;
+}
+
+/* === LOGO === */
+.footer-logo {
+  width: 140px;
+  filter: brightness(0) invert(1);
+}
+
+/* === TITLES & TEXT === */
+.footer-title {
+  font-family: "Angsana New", serif;
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+/* === FORM === */
+.footer-form input {
+  border: 1px solid #ffffff;
+  background: transparent;
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: 4px;
+}
+
+.footer-form input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.btn-subscribe {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  transition: all 0.3s ease;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-subscribe:hover {
+  background-color: #a68d4f;
+  color: #fff;
+}
+
+/* === SOCIAL ICONS === */
+.social-icons a {
+  color: #bfa15a;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #fff;
+}
+
+/* === DIVIDER === */
+.footer-divider {
+  border-color: rgba(255, 255, 255, 0.1);
+  margin: 2rem 0;
+}
+
+/* === RESPONSIVE FIX === */
+@media (max-width: 768px) {
+  .footer-section {
+    padding: 60px 20px 80px;
+    text-align: center;
+    margin-top: -1px; /* still attach visually */
+  }
+
+  .footer-logo {
+    margin-bottom: 20px;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .social-icons {
+    margin-top: 20px;
+  }
+}

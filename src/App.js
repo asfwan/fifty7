@@ -1,24 +1,75 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import Header from "./components/Navbar";
+import Footer from "./components/Footer";
+import GarrisonNavbar from "./components/Garrison/GarrisonNavbar"; // ✅ bring in the new king of navbars
+
+// Import your pages...
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import Login from "./pages/Login";
+import CreateAccount from "./pages/CreateAccount";
+import Kindrette from "./pages/Kindrette";
+import Business3 from "./pages/Business3";
+import Business4 from "./pages/Business4";
+import Events from "./pages/Events";
+import FiftySevenMarket from "./pages/FiftySevenMarket";
+
+import Garrison from "./pages/Garrison/Garrison";
+import GarrisonAboutPage from "./pages/Garrison/GarrisonAboutPage";
+import GarrisonEventsPage from "./pages/Garrison/GarrisonEventsPage";
+import GarrisonFeaturesPage from "./pages/Garrison/GarrisonFeaturesPage";
+import GarrisonLocationPage from "./pages/Garrison/GarrisonLocationPage";
+import GarrisonHistoryPage from "./pages/Garrison/GarrisonHistoryPage";
+import GarrisonGalleryPage from "./pages/Garrison/GarrisonGalleryPage";
+import GarrisonEnquiryPage from "./pages/Garrison/GarrisonEnquiryPage";
+
+import "./App.css";
+
+function Layout() {
+  const location = useLocation();
+  
+  const isGarrisonPage = location.pathname.startsWith("/garrison");
+
+  return (
+    <>
+      {isGarrisonPage ? <GarrisonNavbar /> : <Header />}  
+
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/create-account" element={<CreateAccount />} />
+
+          <Route path="/garrison" element={<Garrison />} />
+          <Route path="/garrison/about" element={<GarrisonAboutPage />} />
+          <Route path="/garrison/events" element={<GarrisonEventsPage />} />
+          <Route path="/garrison/features" element={<GarrisonFeaturesPage />} />
+          <Route path="/garrison/location" element={<GarrisonLocationPage />} />
+          <Route path="/garrison/history" element={<GarrisonHistoryPage />} />
+          <Route path="/garrison/gallery" element={<GarrisonGalleryPage />} />
+          <Route path="/garrison/enquiry" element={<GarrisonEnquiryPage />} />
+
+          <Route path="/kindrette" element={<Kindrette />} />
+          <Route path="/business3" element={<Business3 />} />
+          <Route path="/business4" element={<Business4 />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/fiftyseven-market" element={<FiftySevenMarket />} />
+        </Routes>
+      </main>
+
+      <Footer />
+    </>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Layout />
+    </Router>
   );
 }
 
