@@ -30,17 +30,151 @@ function OurTeam57() {
       image: "/Images/57Directive/Team/amelia.jpg",
       route: "/garrison/about",
     },
+    {
+      id: 3,
+      title: "Ahmad",
+      description: "Designer",
+      image: "/Images/57Directive/Team/ahmad.jpg",
+      route: "/garrison/about",
+    },
+    {
+      id: 3,
+      title: "Am",
+      description: "Designer",
+      image: "/Images/57Directive/Team/am.jpg",
+      route: "/garrison/about",
+    },
+    {
+      id: 3,
+      title: "Farah",
+      description: "Designer",
+      image: "/Images/57Directive/Team/farah.jpg",
+      route: "/garrison/about",
+    },
+    {
+      id: 3,
+      title: "Izzati",
+      description: "Designer",
+      image: "/Images/57Directive/Team/izzati.jpg",
+      route: "/garrison/about",
+    },
+    {
+      id: 3,
+      title: "Mirhan",
+      description: "Designer",
+      image: "/Images/57Directive/Team/mirhan.jpg",
+      route: "/garrison/about",
+    },
+    {
+      id: 3,
+      title: "Muhaymin",
+      description: "Designer",
+      image: "/Images/57Directive/Team/muhaymin.jpg",
+      route: "/garrison/about",
+    },
+    {
+      id: 3,
+      title: "Nabila",
+      description: "Designer",
+      image: "/Images/57Directive/Team/nabila.jpg",
+      route: "/garrison/about",
+    },
+    {
+      id: 3,
+      title: "Naufal",
+      description: "Designer",
+      image: "/Images/57Directive/Team/naufal.jpg",
+      route: "/garrison/about",
+    },
+    {
+      id: 3,
+      title: "Redzuan",
+      description: "Designer",
+      image: "/Images/57Directive/Team/redzuan.jpg",
+      route: "/garrison/about",
+    },
+    {
+      id: 3,
+      title: "Rizal",
+      description: "Designer",
+      image: "/Images/57Directive/Team/rizal.jpg",
+      route: "/garrison/about",
+    },
+    {
+      id: 3,
+      title: "Tim",
+      description: "Designer",
+      image: "/Images/57Directive/Team/tim.jpg",
+      route: "/garrison/about",
+    },
+    {
+      id: 3,
+      title: "Yana",
+      description: "Designer",
+      image: "/Images/57Directive/Team/yana.jpg",
+      route: "/garrison/about",
+    },
+    {
+      id: 3,
+      title: "Zul",
+      description: "Designer",
+      image: "/Images/57Directive/Team/zul.jpg",
+      route: "/garrison/about",
+    },
+    // {
+    //   id: 3,
+    //   title: "Amelia",
+    //   description: "Designer",
+    //   image: "/Images/57Directive/Team/amelia.jpg",
+    //   route: "/garrison/about",
+    // },
+    // {
+    //   id: 3,
+    //   title: "Amelia",
+    //   description: "Designer",
+    //   image: "/Images/57Directive/Team/amelia.jpg",
+    //   route: "/garrison/about",
+    // },
+    // {
+    //   id: 3,
+    //   title: "Amelia",
+    //   description: "Designer",
+    //   image: "/Images/57Directive/Team/amelia.jpg",
+    //   route: "/garrison/about",
+    // },
+    // {
+    //   id: 3,
+    //   title: "Amelia",
+    //   description: "Designer",
+    //   image: "/Images/57Directive/Team/amelia.jpg",
+    //   route: "/garrison/about",
+    // },
+    // {
+    //   id: 3,
+    //   title: "Amelia",
+    //   description: "Designer",
+    //   image: "/Images/57Directive/Team/amelia.jpg",
+    //   route: "/garrison/about",
+    // },
+    // {
+    //   id: 3,
+    //   title: "Amelia",
+    //   description: "Designer",
+    //   image: "/Images/57Directive/Team/amelia.jpg",
+    //   route: "/garrison/about",
+    // },
+    visualViewport
     // ...rest of team members
   ];
 
   const nextSlide = () => setCurrentSlide(prev => prev === teamMembers.length - 1 ? 0 : prev + 1);
   const prevSlide = () => setCurrentSlide(prev => prev === 0 ? teamMembers.length - 1 : prev - 1);
 
-  // Auto-advance slides
-  useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
-    return () => clearInterval(interval);
-  }, [currentSlide]);
+  // // Auto-advance slides
+  // useEffect(() => {
+  //   const interval = setInterval(nextSlide, 5000);
+  //   return () => clearInterval(interval);
+  // }, [currentSlide]);
 
   // Touch handlers for mobile swipe
   const handleTouchStart = (e) => setTouchStart(e.targetTouches[0].clientX);

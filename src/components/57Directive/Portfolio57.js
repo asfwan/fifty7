@@ -1,3 +1,4 @@
+// src/components/57Directive/Features57.js
 import React, { useState, useEffect } from "react";
 import "../../styles/57directive/portfolio57.css";
 
@@ -6,25 +7,73 @@ function Portfolio57() {
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
 
-  const portfolioItems = [
-    { id: 1, category: "short description", image: "/Images/57Directive/Portfolio/apartment.jpg", title: "Location" },
-    { id: 2, category: "short description", image: "/Images/57Directive/Portfolio/office.jpg", title: "Location" },
-    { id: 3, category: "short description", image: "/Images/57Directive/Portfolio/condo.jpg", title: "Location" },
-    { id: 4, category: "short description", image: "/Images/57Directive/Portfolio/retail.jpg", title: "Location" },
-    { id: 5, category: "short description", image: "/Images/57Directive/Portfolio/family.jpg", title: "Location" },
-    { id: 6, category: "short description", image: "/Images/57Directive/Portfolio/restaurant.jpg", title: "Location" },
+  const featuresItems = [
+    // {
+    //   id: 1,
+    //   title: "Our Features",
+    //   description: "Explore key highlights of our services",
+    //   image: "/Images/57Directive/Features/kitchen.jpeg",
+    // },
+    {
+      id: 2,
+      title: "APARTMENTS",
+      description: "Recognized for outstanding business excellence",
+      image: "/Images/57Directive/Portfolio/apartment.jpg",
+    },
+    {
+      id: 3,
+      title: "CONDO",
+      description: "Exquisite quality designs and fittings",
+      image: "/Images/57Directive/Portfolio/condo.jpg",
+    },
+    {
+      id: 3,
+      title: "OFFICE",
+      description: "Exquisite quality designs and fittings",
+      image: "/Images/57Directive/Portfolio/office.jpg",
+
+    },
+    {
+      id: 3,
+      title: "RESTAURANT",
+      description: "Exquisite quality designs and fittings",
+      image: "/Images/57Directive/Portfolio/restaurant.jpg",
+    },
+    {
+      id: 3,
+      title: "RETAIL",
+      description: "Exquisite quality designs and fittings",
+      image: "/Images/57Directive/Portfolio/retail.jpg",
+    },
+    // {
+    //   id: 3,
+    //   title: "NEWS",
+    //   description: "Exquisite quality designs and fittings",
+    //   image: "/Images/57Directive/Features/news.jpeg",
+    // },
+    // {
+    //   id: 3,
+    //   title: "NEWS",
+    //   description: "Exquisite quality designs and fittings",
+    //   image: "/Images/57Directive/Features/news2.jpeg",
+    // },
   ];
 
-  const nextSlide = () => setCurrentSlide(prev => prev === portfolioItems.length - 1 ? 0 : prev + 1);
-  const prevSlide = () => setCurrentSlide(prev => prev === 0 ? portfolioItems.length - 1 : prev - 1);
+  const nextSlide = () =>
+    setCurrentSlide((prev) =>
+      prev === featuresItems.length - 1 ? 0 : prev + 1
+    );
 
-  // Auto-advance slides
-  useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
-    return () => clearInterval(interval);
-  }, [currentSlide]);
+  const prevSlide = () =>
+    setCurrentSlide((prev) =>
+      prev === 0 ? featuresItems.length - 1 : prev - 1
+    );
 
-  // Touch handlers for mobile swipe
+  // useEffect(() => {
+  //   const interval = setInterval(nextSlide, 5000);
+  //   return () => clearInterval(interval);
+  // }, [currentSlide]);
+
   const handleTouchStart = (e) => setTouchStart(e.targetTouches[0].clientX);
   const handleTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
   const handleTouchEnd = () => {
@@ -37,7 +86,7 @@ function Portfolio57() {
   };
 
   return (
-    <section id="portfolio" className="portfolio-57-section">
+    <section id="features" className="features57-section">
       <div className="carousel-container">
         <div
           className="carousel-track"
@@ -46,25 +95,22 @@ function Portfolio57() {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          {portfolioItems.map((item, index) => (
+          {featuresItems.map((item) => (
             <div key={item.id} className="carousel-slide">
-              <div className="portfolio-item">
-                <div className="portfolio-image-wrapper">
-                  <img src={item.image} alt={item.title} className="portfolio-image" />
-
-                  <div className="portfolio-overlay">
-                    <div className="overlay-content">
-                      {/* Show section title/subtitle only on first slide */}
-                      {index === 0 && (
-                        <div className="section-header-on-slide">
-                          <h2 className="section-title">Our Works</h2>
-                          <p className="section-subtitle">Discover our latest renovation projects</p>
-                        </div>
-                      )}
-
-                      <h4 className="portfolio-item-title">{item.title}</h4>
-                      <span className="portfolio-item-category">{item.category}</span>
-                    </div>
+              <div className="feature-item">
+                <div className="feature-image-wrapper">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="feature-image"
+                    onError={(e) => {
+                      e.currentTarget.src =
+                        "https://via.placeholder.com/1200x800/f8f3e7/63100d?text=Feature+Image";
+                    }}
+                  />
+                  <div className="feature-overlay always-visible">
+                    <h4 className="feature-title">{item.title}</h4>
+                    <p className="feature-description">{item.description}</p>
                   </div>
                 </div>
               </div>
@@ -72,11 +118,16 @@ function Portfolio57() {
           ))}
         </div>
 
-        {/* Navigation Below */}
         <div className="carousel-navigation-below">
-          <button className="nav-arrow nav-prev" onClick={prevSlide}>‹</button>
-          <span className="slide-counter">{currentSlide + 1}/{portfolioItems.length}</span>
-          <button className="nav-arrow nav-next" onClick={nextSlide}>›</button>
+          <button className="nav-arrow" onClick={prevSlide}>
+            ‹
+          </button>
+          <span className="slide-counter">
+            {currentSlide + 1}/{featuresItems.length}
+          </span>
+          <button className="nav-arrow" onClick={nextSlide}>
+            ›
+          </button>
         </div>
       </div>
     </section>

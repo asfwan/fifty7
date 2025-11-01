@@ -1,3 +1,4 @@
+// src/components/57Directive/Features57.js
 import React, { useState, useEffect } from "react";
 import "../../styles/57directive/features57.css";
 
@@ -7,17 +8,53 @@ function Features57() {
   const [touchEnd, setTouchEnd] = useState(null);
 
   const featuresItems = [
-    {
-      id: 1,
-      category: "Short Descriptions",
-      image: "/Images/57Directive/Portfolio/apartment.jpg",
-      title: "SME500",
-    },
+    // {
+    //   id: 1,
+    //   title: "Our Features",
+    //   description: "Explore key highlights of our services",
+    //   image: "/Images/57Directive/Features/kitchen.jpeg",
+    // },
     {
       id: 2,
-      category: "Short Descriptions",
-      image: "/Images/57Directive/Portfolio/office.jpg",
+      title: "SME500",
+      description: "Recognized for outstanding business excellence",
+      image: "/Images/57Directive/Features/sme.jpeg",
+    },
+    {
+      id: 3,
       title: "BLUM",
+      description: "Exquisite quality designs and fittings",
+      image: "/Images/57Directive/Features/blum.jpeg",
+    },
+    {
+      id: 3,
+      title: "CENTRAL AREA SHOWROOM",
+      description: "Exquisite quality designs and fittings",
+      image: "/Images/57Directive/Features/showroom.jpeg",
+    },
+    {
+      id: 3,
+      title: "CHARITY",
+      description: "Exquisite quality designs and fittings",
+      image: "/Images/57Directive/Features/charity.jpeg",
+    },
+    {
+      id: 3,
+      title: "SPONSORSHIPS",
+      description: "Exquisite quality designs and fittings",
+      image: "/Images/57Directive/Features/sponsor.jpeg",
+    },
+    {
+      id: 3,
+      title: "NEWS",
+      description: "Exquisite quality designs and fittings",
+      image: "/Images/57Directive/Features/news.jpeg",
+    },
+    {
+      id: 3,
+      title: "NEWS",
+      description: "Exquisite quality designs and fittings",
+      image: "/Images/57Directive/Features/news2.jpeg",
     },
   ];
 
@@ -31,10 +68,10 @@ function Features57() {
       prev === 0 ? featuresItems.length - 1 : prev - 1
     );
 
-  useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
-    return () => clearInterval(interval);
-  }, [currentSlide]);
+  // useEffect(() => {
+  //   const interval = setInterval(nextSlide, 5000);
+  //   return () => clearInterval(interval);
+  // }, [currentSlide]);
 
   const handleTouchStart = (e) => setTouchStart(e.targetTouches[0].clientX);
   const handleTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
@@ -49,56 +86,48 @@ function Features57() {
 
   return (
     <section id="features" className="features57-section">
-      <div
-        className="carousel-track"
-        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-      >
-        {featuresItems.map((item, index) => (
-          <div key={item.id} className="carousel-slide">
-            <div className="feature-item">
-              <div className="feature-image-wrapper">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="feature-image"
-                />
-
-                <div className="feature-overlay">
-                  <div className="overlay-content">
-                    {/* Section title/subtitle on first slide */}
-                    {index === 0 && (
-                      <div className="section-header-on-slide">
-                        <h2 className="feature-section-title">Our Features</h2>
-                        <p className="feature-section-subtitle">
-                          Explore key highlights of our services
-                        </p>
-                      </div>
-                    )}
-
-                    <h3 className="feature-item-title">{item.title}</h3>
-                    <p className="feature-item-category">{item.category}</p>
+      <div className="carousel-container">
+        <div
+          className="carousel-track"
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          {featuresItems.map((item) => (
+            <div key={item.id} className="carousel-slide">
+              <div className="feature-item">
+                <div className="feature-image-wrapper">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="feature-image"
+                    onError={(e) => {
+                      e.currentTarget.src =
+                        "https://via.placeholder.com/1200x800/f8f3e7/63100d?text=Feature+Image";
+                    }}
+                  />
+                  <div className="feature-overlay always-visible">
+                    <h4 className="feature-title">{item.title}</h4>
+                    <p className="feature-description">{item.description}</p>
                   </div>
                 </div>
               </div>
-
-              {/* Navigation below the image */}
-              <div className="feature-controls desktop-only">
-                <button className="nav-arrow" onClick={prevSlide}>
-                  &#10094;
-                </button>
-                <span className="slide-counter">
-                  {currentSlide + 1} / {featuresItems.length}
-                </span>
-                <button className="nav-arrow" onClick={nextSlide}>
-                  &#10095;
-                </button>
-              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        <div className="carousel-navigation-below">
+          <button className="nav-arrow" onClick={prevSlide}>
+            ‹
+          </button>
+          <span className="slide-counter">
+            {currentSlide + 1}/{featuresItems.length}
+          </span>
+          <button className="nav-arrow" onClick={nextSlide}>
+            ›
+          </button>
+        </div>
       </div>
     </section>
   );

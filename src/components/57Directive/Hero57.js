@@ -3,12 +3,19 @@ import "../../styles/57directive/hero57.css";
 
 function Hero57() {
   return (
-    <section className="hero-57 position-relative text-white">
-      {/* Video Background */}
+    <section className="hero57-banner">
+      {/* Scrolling Text */}
+      {/* <div className="scrolling-text">
+        <div className="scrolling-content">
+          57 DIRECTIVE • DESIGN • RENOVATE • BUILD • 57 DIRECTIVE • DESIGN • RENOVATE • BUILD • 57 DIRECTIVE •
+        </div>
+      </div> */}
+
+      {/* === Video Background === */}
       <div className="video-container">
         <video
           className="hero-video"
-          src="/Videos/57Directive/directive.mp4" // Update with your actual video path
+          src="/Videos/57Directive/directive.mp4"
           autoPlay
           muted
           loop
@@ -19,36 +26,27 @@ function Hero57() {
         />
       </div>
 
-      {/* Gradient Overlay */}
-      <div className="hero-57-overlay" aria-hidden="true" />
+      {/* Optional overlay (slight tint for text contrast) */}
+      <div className="video-overlay"></div>
 
-      {/* Content */}
-      <div className="container hero-57-content">
-        {/* <h1 className="hero-57-title display-4 fw-bold">Renovate Space</h1>
-        <p className="hero-57-subtitle lead mb-4">
-          Transform your space with our 57 Directive expertise
-        </p>
-        <a href="#portfolio" className="btn btn-outline-light btn-lg px-4">
-          Explore Our Work
-          <img
-            src="/Images/down-arrow-white.png"
-            alt=""
-            className="ms-2 down-arrow"
-          />
-        </a> */}
+      {/* Placeholder for future text/content */}
+      <div className="hero57-content">
+        {/* Example (uncomment if needed):
+        <h1>57 Directive</h1>
+        <p>Renovate. Redefine. Revive.</p> */}
       </div>
 
-      {/* Optional: WhatsApp Floating Icon */}
-      <div className="whatsapp-float">
-        <a 
-          href="https://wa.me/6512345678" 
-          target="_blank" 
+      {/* WhatsApp Floating Icon */}
+      {/* <div className="whatsapp-float">
+        <a
+          href="https://wa.me/6592304357"
+          target="_blank"
           rel="noopener noreferrer"
           className="whatsapp-link"
         >
           <img src="/Images/57Directive/whatsapp.png" alt="WhatsApp" />
         </a>
-      </div>
+      </div> */}
     </section>
   );
 }

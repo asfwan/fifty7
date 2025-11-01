@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/navbar.css";
 import { Link, useLocation } from "react-router-dom";
 
-function Header() {
+function Navbar({ logo }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [languageOpen, setLanguageOpen] = useState(false);
@@ -21,10 +21,24 @@ function Header() {
 
   const isMobile = window.innerWidth <= 768;
 
+  const getLogoForPage = () => {
+    if (logo) return logo;
+    if (location.pathname.startsWith("/garrison"))
+      return "/Images/Garrison/Logo/garrisonlong.png";
+    if (location.pathname.startsWith("/57directive"))
+      return "/Images/57Directive/directive.png";
+    if (location.pathname.startsWith("/academy"))
+      return "/Images/Academy/academylogo.png";
+    if (location.pathname.startsWith("/realestate"))
+      return "/Images/RealEstate/realestatelogo.png";
+    return "/Images/raffles-logo.png";
+  };
+
+  const currentLogo = getLogoForPage();
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-
       if (isMobile) {
         if (window.scrollY > prevScroll && window.scrollY > 50) {
           setHideNav(true);
@@ -37,9 +51,7 @@ function Header() {
     };
 
     const handleClickOutside = (e) => {
-      if (navRef.current && !navRef.current.contains(e.target)) {
-        setMobileOpen(false);
-      }
+      if (navRef.current && !navRef.current.contains(e.target)) setMobileOpen(false);
       if (topBarRef.current && !topBarRef.current.contains(e.target)) {
         setLanguageOpen(false);
         setCurrencyOpen(false);
@@ -56,9 +68,7 @@ function Header() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("click", handleClickOutside);
-      if (businessTimeoutRef.current) {
-        clearTimeout(businessTimeoutRef.current);
-      }
+      if (businessTimeoutRef.current) clearTimeout(businessTimeoutRef.current);
     };
   }, [prevScroll, isMobile]);
 
@@ -68,30 +78,23 @@ function Header() {
     setAccountOpen(false);
     setBusinessOpen(false);
   };
-
   const toggleCurrency = () => {
     setCurrencyOpen(!currencyOpen);
     setLanguageOpen(false);
     setAccountOpen(false);
     setBusinessOpen(false);
   };
-
   const toggleAccount = () => {
     setAccountOpen(!accountOpen);
     setLanguageOpen(false);
     setCurrencyOpen(false);
     setBusinessOpen(false);
   };
-
-  const toggleBusiness = () => {
-    setBusinessOpen(!businessOpen);
-  };
-
+  const toggleBusiness = () => setBusinessOpen(!businessOpen);
   const toggleMobileNav = () => {
     setMobileOpen(!mobileOpen);
     setBusinessOpen(false);
   };
-
   const closeMobileMenu = () => {
     setMobileOpen(false);
     setBusinessOpen(false);
@@ -99,114 +102,71 @@ function Header() {
 
   const handleBusinessMouseEnter = () => {
     if (!isMobile) {
-      if (businessTimeoutRef.current) {
-        clearTimeout(businessTimeoutRef.current);
-      }
+      if (businessTimeoutRef.current) clearTimeout(businessTimeoutRef.current);
       setBusinessOpen(true);
     }
   };
-
   const handleBusinessMouseLeave = () => {
     if (!isMobile) {
-      businessTimeoutRef.current = setTimeout(() => {
-        setBusinessOpen(false);
-      }, 300);
+      businessTimeoutRef.current = setTimeout(() => setBusinessOpen(false), 300);
     }
   };
-
   const handleDropdownMouseEnter = () => {
-    if (!isMobile) {
-      if (businessTimeoutRef.current) {
-        clearTimeout(businessTimeoutRef.current);
-      }
-    }
+    if (!isMobile && businessTimeoutRef.current) clearTimeout(businessTimeoutRef.current);
   };
-
   const handleDropdownMouseLeave = () => {
     if (!isMobile) {
-      businessTimeoutRef.current = setTimeout(() => {
-        setBusinessOpen(false);
-      }, 300);
+      businessTimeoutRef.current = setTimeout(() => setBusinessOpen(false), 300);
     }
   };
-
-  // Function to handle navigation and close mobile menu
-  const handleNavigation = () => {
-    closeMobileMenu();
-  };
+  const handleNavigation = () => closeMobileMenu();
 
   return (
     <header className={`main-header ${scrolled ? "scrolled" : ""}`} ref={navRef}>
       <nav className={`navbar ${scrolled ? "scrolled" : "initial"} ${hideNav ? "hide-on-scroll" : ""}`}>
         <div className="nav-container">
-          <Link 
-            className={`navbar-brand ${scrolled ? "logo-left" : "logo-center"}`} 
+          <Link
+            className={`navbar-brand ${scrolled ? "logo-left" : "logo-center"}`}
             to="/"
             onClick={closeMobileMenu}
           >
-            <img src="/Images/raffles-logo.png" alt="Company logo" />
+            <img src={currentLogo} alt="Company logo" />
           </Link>
 
           <ul className={`navbar-nav nav-links ${scrolled ? "visible" : "hidden"} ${mobileOpen ? "show" : ""}`}>
-            <li className="nav-item">
-              <Link to="/" onClick={handleNavigation}>Home</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/about" onClick={handleNavigation}>About</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/inquiries" onClick={handleNavigation}>Inquiries</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/gallery" onClick={handleNavigation}>Gallery</Link>
-            </li>
-            
-            <li 
+            <li className="nav-item"><Link to="/" onClick={handleNavigation}>Home</Link></li>
+            <li className="nav-item"><Link to="/about" onClick={handleNavigation}>About</Link></li>
+            <li className="nav-item"><Link to="/inquiries" onClick={handleNavigation}>Inquiries</Link></li>
+            <li className="nav-item"><Link to="/gallery" onClick={handleNavigation}>Gallery</Link></li>
+
+            <li
               className={`nav-item dropdown-parent ${businessOpen ? "open" : ""}`}
               ref={businessDropdownRef}
               onMouseEnter={handleBusinessMouseEnter}
               onMouseLeave={handleBusinessMouseLeave}
             >
-              <a 
-                href="#our-business" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  toggleBusiness();
-                }}
+              <a
+                href="#our-business"
+                onClick={(e) => { e.preventDefault(); toggleBusiness(); }}
                 className="dropdown-toggle"
               >
-                Our Business
-                <span className="dropdown-arrow">▼</span>
+                Our Business <span className="dropdown-arrow">▼</span>
               </a>
-              <ul 
+              <ul
                 className="business-dropdown"
                 onMouseEnter={handleDropdownMouseEnter}
                 onMouseLeave={handleDropdownMouseLeave}
               >
-                <li>
-                  <Link to="/garrison" onClick={handleNavigation}>Garrison</Link>
-                </li>
-                <li>
-                  <Link to="/57directive" onClick={handleNavigation}>Renovate Space</Link>
-                </li>
-                <li>
-                  <Link to="/academy" onClick={handleNavigation}>Book A Carpentry Lesson</Link>
-                </li>
-                <li>
-                  <Link to="/realestate" onClick={handleNavigation}>Sell Your Place</Link>
-                </li>
-                <li>
-                  <Link to="/fiftyseven-market" onClick={handleNavigation}>FiftySeven Market</Link>
-                </li>
-                <li>
-                  <Link to="/events" onClick={handleNavigation}>Events</Link>
-                </li>
+                <li><Link to="/garrison" onClick={handleNavigation}>Garrison</Link></li>
+                <li><Link to="/57directive" onClick={handleNavigation}>Renovate Space</Link></li>
+                <li><Link to="/academy" onClick={handleNavigation}>Book A Carpentry Lesson</Link></li>
+                <li><Link to="/realestate" onClick={handleNavigation}>Sell Your Place</Link></li>
+                <li><Link to="/fiftyseven-market" onClick={handleNavigation}>FiftySeven Market</Link></li>
+                <li><Link to="/events" onClick={handleNavigation}>Events</Link></li>
               </ul>
             </li>
-            
-            <li className="nav-item">
-              <Link to="/contact" onClick={handleNavigation}>Contact Us</Link>
-            </li>
+
+            <li className="nav-item"><Link to="/contact" onClick={handleNavigation}>Contact Us</Link></li>
           </ul>
 
           <div className="top-bar-items" ref={topBarRef}>
@@ -230,7 +190,7 @@ function Header() {
               </ul>
             </div>
 
-            <div className={`top-item`}>
+            <div className="top-item">
               <Link to="/contact" onClick={handleNavigation}>Contact</Link>
             </div>
 
@@ -246,17 +206,11 @@ function Header() {
             </div>
           </div>
 
-          <button
-            className="navbar-toggler"
-            type="button"
-            onClick={toggleMobileNav}
-          >
-            ☰
-          </button>
+          <button className="navbar-toggler" type="button" onClick={toggleMobileNav}>☰</button>
         </div>
       </nav>
     </header>
   );
 }
 
-export default Header;
+export default Navbar;

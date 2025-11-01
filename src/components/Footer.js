@@ -1,9 +1,9 @@
 // src/components/Footer.js
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../styles/footer.css";
+import ".././styles/footer.css";
 
-function Footer() {
+function Footer({ logo }) { // Accept a logo prop
   return (
     <footer className="footer-section text-light">
       <div className="container py-5">
@@ -11,7 +11,7 @@ function Footer() {
           {/* Left Column: Logo and Contact Info */}
           <div className="col-md-4 mb-4">
             <img
-              src="/Images/Garrison/Logo/garrisonlong.png"
+              src={logo || "/Images/Garrison/Logo/garrisonlong.png"} // Use prop or default
               alt="Company logo"
               className="footer-logo mb-3"
             />
