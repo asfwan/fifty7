@@ -176,10 +176,10 @@ function Navbar57() {
                   <Link to="/57directive" onClick={closeMobileMenu}>Renovate Space</Link>
                 </li>
                 <li>
-                  <Link to="/business3" onClick={closeMobileMenu}>Book A Carpentry Lesson</Link>
+                  <Link to="/academy" onClick={closeMobileMenu}>Book A Carpentry Lesson</Link>
                 </li>
                 <li>
-                  <Link to="/business4" onClick={closeMobileMenu}>Sell Your Place</Link>
+                  <Link to="/realestate" onClick={closeMobileMenu}>Sell Your Place</Link>
                 </li>
                 <li>
                   <Link to="/fiftyseven-market" onClick={closeMobileMenu}>FiftySeven Market</Link>

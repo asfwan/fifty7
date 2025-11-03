@@ -96,6 +96,16 @@ function Header() {
     setBusinessOpen(false);
   };
 
+  const handleLinkClick = () => {
+    // Scroll to top when navigation link is clicked
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
+    });
+    closeMobileMenu();
+  };
+
   const handleBusinessMouseEnter = () => {
     if (!isMobile) {
       if (businessTimeoutRef.current) {
@@ -170,27 +180,27 @@ function Header() {
                 onMouseLeave={handleDropdownMouseLeave}
               >
                 <li>
-                  <Link to="/garrison" onClick={closeMobileMenu}>Garrison</Link>
+                  <Link to="/garrison" onClick={handleLinkClick}>Garrison</Link>
                 </li>
                 <li>
-                  <Link to="/kindrette" onClick={closeMobileMenu}>Kindrette</Link>
+                  <Link to="/kindrette" onClick={handleLinkClick}>Kindrette</Link>
                 </li>
                 <li>
-                  <Link to="/business3" onClick={closeMobileMenu}>Business 3</Link>
+                  <Link to="/business3" onClick={handleLinkClick}>Business 3</Link>
                 </li>
                 <li>
-                  <Link to="/business4" onClick={closeMobileMenu}>Business 4</Link>
+                  <Link to="/business4" onClick={handleLinkClick}>Business 4</Link>
                 </li>
                 <li>
-                  <Link to="/fiftyseven-market" onClick={closeMobileMenu}>FiftySeven Market</Link>
+                  <Link to="/fiftyseven-market" onClick={handleLinkClick}>FiftySeven Market</Link>
                 </li>
                 <li>
-                  <Link to="/events" onClick={closeMobileMenu}>Events</Link>
+                  <Link to="/events" onClick={handleLinkClick}>Events</Link>
                 </li>
               </ul>
             </li>
             
-            <li className="nav-item"><Link to="/contact" onClick={closeMobileMenu}>Contact Us</Link></li>
+            <li className="nav-item"><Link to="/contact" onClick={handleLinkClick}>Contact Us</Link></li>
           </ul>
 
           <div className="top-bar-items" ref={topBarRef}>
@@ -215,7 +225,7 @@ function Header() {
             </div>
 
             <div className={`top-item`}>
-              <Link to="/contact">Contact</Link>
+              <Link to="/contact" onClick={handleLinkClick}>Contact</Link>
             </div>
 
             <div className={`top-item ${accountOpen ? "open" : ""}`}>

@@ -119,7 +119,15 @@ function Navbar({ logo }) {
       businessTimeoutRef.current = setTimeout(() => setBusinessOpen(false), 300);
     }
   };
-  const handleNavigation = () => closeMobileMenu();
+  const handleNavigation = () => {
+    // Scroll to top when navigation link is clicked
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
+    });
+    closeMobileMenu();
+  };
 
   return (
     <header className={`main-header ${scrolled ? "scrolled" : ""}`} ref={navRef}>
@@ -135,9 +143,10 @@ function Navbar({ logo }) {
 
           <ul className={`navbar-nav nav-links ${scrolled ? "visible" : "hidden"} ${mobileOpen ? "show" : ""}`}>
             <li className="nav-item"><Link to="/" onClick={handleNavigation}>Home</Link></li>
-            <li className="nav-item"><Link to="/about" onClick={handleNavigation}>About</Link></li>
-            <li className="nav-item"><Link to="/inquiries" onClick={handleNavigation}>Inquiries</Link></li>
-            <li className="nav-item"><Link to="/gallery" onClick={handleNavigation}>Gallery</Link></li>
+            {/* TODO: Create About, Inquiries, and Gallery pages or add corresponding sections with IDs to Home page */}
+            {/* <li className="nav-item"><Link to="/about" onClick={handleNavigation}>About</Link></li> */}
+            {/* <li className="nav-item"><Link to="/inquiries" onClick={handleNavigation}>Inquiries</Link></li> */}
+            {/* <li className="nav-item"><Link to="/gallery" onClick={handleNavigation}>Gallery</Link></li> */}
 
             <li
               className={`nav-item dropdown-parent ${businessOpen ? "open" : ""}`}

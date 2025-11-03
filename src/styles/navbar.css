@@ -40,8 +40,8 @@ body, html {
 }
 
 .navbar.scrolled {
-  background-color: #63100d;       /* maroon */
-  border-bottom: 3px solid #bfa15a; /* gold border */
+  background-color: var(--color-main);       /* maroon */
+  border-bottom: 3px solid var(--color-secondary); /* yellow border */
   box-shadow: 0 4px 20px rgba(0,0,0,0.15);
   justify-content: space-between;
   padding: 0.75rem 3rem;
@@ -103,7 +103,7 @@ body, html {
 .nav-links.visible { opacity:1; visibility:visible; transform:translateY(0); pointer-events:all; }
 
 .nav-item { margin:0 1rem; position:relative; }
-.nav-item a { color:#fff; font-family:"Playfair Display", serif; font-size:0.9rem; letter-spacing:0.5px; text-decoration:none; border-bottom:2px solid transparent; padding:0.5rem 0; transition:0.3s ease; }
+.nav-item a { color:#fff; font-family:"Angsana New", serif; font-size:0.9rem; letter-spacing:0.5px; text-decoration:none; border-bottom:2px solid transparent; padding:0.5rem 0; transition:0.3s ease; }
 .nav-item a:hover { border-bottom:2px solid #fff; color:#fff; }
 
 /* dropdown */
@@ -130,13 +130,13 @@ body, html {
 
 .dropdown-parent.open .business-dropdown { display:flex; }
 
-.business-dropdown li a { color:#333; font-family:"Playfair Display", serif; font-size:0.9rem; padding:0.6rem 1.5rem; display:block; transition:0.3s ease; text-align:left; }
+.business-dropdown li a { color:#000; font-family:"Angsana New", serif; font-size:0.9rem; padding:0.6rem 1.5rem; display:block; transition:0.3s ease; text-align:left; }
 .business-dropdown li a:hover { color:#bfa15a; background:#f8f5ee; }
 
 /* top-bar items */
 .top-bar-items { display:flex; align-items:center; gap:1.5rem; z-index:2000; }
 .top-item { position:relative; cursor:pointer; }
-.top-item .top-button { background:none; border:none; color:#fff; font-family:"Playfair Display", serif; font-size:0.85rem; cursor:pointer; transition:0.3s ease; padding:0; }
+.top-item .top-button { background:none; border:none; color:#fff; font-family:"Angsana New", serif; font-size:0.85rem; cursor:pointer; transition:0.3s ease; padding:0; }
 .top-item .top-button:hover { color:#63100d; }
 .navbar.scrolled .top-item .top-button { color:#fff; }
 .navbar.scrolled .top-item .top-button:hover { color:#63100d; }
