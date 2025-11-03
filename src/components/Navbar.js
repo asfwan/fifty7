@@ -12,14 +12,13 @@ function Navbar({ logo }) {
   const [businessOpen, setBusinessOpen] = useState(false);
   const [prevScroll, setPrevScroll] = useState(0);
   const [hideNav, setHideNav] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const topBarRef = useRef(null);
   const navRef = useRef(null);
   const businessDropdownRef = useRef(null);
   const businessTimeoutRef = useRef(null);
   const location = useLocation();
-
-  const isMobile = window.innerWidth <= 768;
 
   const getLogoForPage = () => {
     if (logo) return logo;
@@ -37,6 +36,15 @@ function Navbar({ logo }) {
   const currentLogo = getLogoForPage();
 
   useEffect(() => {
+    // Handle window resize to update isMobile state
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+      // Close mobile menu if switching to desktop
+      if (window.innerWidth > 768) {
+        setMobileOpen(false);
+      }
+    };
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
       if (isMobile) {
@@ -62,10 +70,12 @@ function Navbar({ logo }) {
       }
     };
 
+    window.addEventListener("resize", handleResize);
     window.addEventListener("scroll", handleScroll);
     document.addEventListener("click", handleClickOutside);
 
     return () => {
+      window.removeEventListener("resize", handleResize);
       window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("click", handleClickOutside);
       if (businessTimeoutRef.current) clearTimeout(businessTimeoutRef.current);
@@ -134,14 +144,14 @@ function Navbar({ logo }) {
       <nav className={`navbar ${scrolled ? "scrolled" : "initial"} ${hideNav ? "hide-on-scroll" : ""}`}>
         <div className="nav-container">
           <Link
-            className={`navbar-brand ${scrolled ? "logo-left" : "logo-center"}`}
+            className={`navbar-brand logo-left`}
             to="/"
             onClick={closeMobileMenu}
           >
             <img src={currentLogo} alt="Logo" />
           </Link>
 
-          <ul className={`navbar-nav nav-links ${scrolled ? "visible" : "hidden"} ${mobileOpen ? "show" : ""}`}>
+          <ul className={`navbar-nav nav-links ${isMobile ? (scrolled ? "visible" : "hidden") : "visible"} ${mobileOpen ? "show" : ""}`}>
             <li className="nav-item"><Link to="/" onClick={handleNavigation}>Home</Link></li>
             {/* TODO: Create About, Inquiries, and Gallery pages or add corresponding sections with IDs to Home page */}
             {/* <li className="nav-item"><Link to="/about" onClick={handleNavigation}>About</Link></li> */}
