@@ -143,14 +143,6 @@ function Navbar({ logo }) {
     <header className={`main-header ${scrolled ? "scrolled" : ""}`} ref={navRef}>
       <nav className={`navbar ${scrolled ? "scrolled" : "initial"} ${hideNav ? "hide-on-scroll" : ""}`}>
         <div className="nav-container">
-          <Link
-            className={`navbar-brand logo-left`}
-            to="/"
-            onClick={closeMobileMenu}
-          >
-            <img src={currentLogo} alt="Logo" />
-          </Link>
-
           <ul className={`navbar-nav nav-links ${isMobile ? (scrolled ? "visible" : "hidden") : "visible"} ${mobileOpen ? "show" : ""}`}>
             <li className="nav-item"><Link to="/" onClick={handleNavigation}>Home</Link></li>
             {/* TODO: Create About, Inquiries, and Gallery pages or add corresponding sections with IDs to Home page */}
@@ -187,6 +179,14 @@ function Navbar({ logo }) {
 
             <li className="nav-item"><Link to="/contact" onClick={handleNavigation}>Contact Us</Link></li>
           </ul>
+
+          <Link
+            className={`navbar-brand ${scrolled ? "logo-left" : "logo-center"}`}
+            to="/"
+            onClick={closeMobileMenu}
+          >
+            <img src={currentLogo} alt="Logo" />
+          </Link>
 
           <div className="top-bar-items" ref={topBarRef}>
             <div className={`top-item ${languageOpen ? "open" : ""}`}>
