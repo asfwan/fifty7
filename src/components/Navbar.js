@@ -167,7 +167,7 @@ function Navbar({ logo }) {
                 onMouseLeave={handleDropdownMouseLeave}
               >
                 <li><Link to="/garrison" onClick={handleNavigation}>Garrison</Link></li>
-                <li><Link to="/57directive" onClick={handleNavigation}>Renovate Space</Link></li>
+                <li><Link to="/57directive/enquirepage" onClick={handleNavigation}>Renovate Space</Link></li>
                 <li><Link to="/academy" onClick={handleNavigation}>Book A Carpentry Lesson</Link></li>
                 <li><Link to="/realestate" onClick={handleNavigation}>Sell Your Place</Link></li>
                 <li><Link to="/fiftyseven-market" onClick={handleNavigation}>FiftySeven Market</Link></li>
