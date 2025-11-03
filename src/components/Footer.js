@@ -1,10 +1,29 @@
 // src/components/Footer.js
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ".././styles/footer.css";
 
-function Footer({ logo }) { // Accept a logo prop
+function Footer({ logo }) { // Accept a logo prop (can be overridden)
+  const location = useLocation();
+
+  const getLogoForPage = () => {
+    // If logo prop is provided, use it (allows page-specific overrides)
+    if (logo) return logo;
+    // Otherwise, determine logo based on current route (matches Navbar logic)
+    if (location.pathname.startsWith("/garrison"))
+      return "/Images/Garrison/Logo/garrisonlong.png";
+    if (location.pathname.startsWith("/57directive"))
+      return "/Images/57Directive/directive.png";
+    if (location.pathname.startsWith("/academy"))
+      return "/Images/Academy/logo.png";
+    if (location.pathname.startsWith("/realestate"))
+      return "/Images/RealEstate/logo.png";
+    return "/Images/Academy/logo.png"; // Default logo
+  };
+
+  const currentLogo = getLogoForPage();
+
   const handleLinkClick = () => {
     // Force scroll to top when footer link is clicked
     window.scrollTo({
@@ -21,7 +40,7 @@ function Footer({ logo }) { // Accept a logo prop
           {/* Left Column: Logo and Contact Info */}
           <div className="col-md-4 mb-4">
             <img
-              src={logo || "/Images/Garrison/Logo/garrisonlong.png"} // Use prop or default
+              src={currentLogo}
               alt="Company logo"
               className="footer-logo mb-3"
             />
