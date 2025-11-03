@@ -173,7 +173,7 @@ function Navbar57() {
                   <Link to="/garrison" onClick={handleLinkClick}>Garrison</Link>
                 </li>
                 <li>
-                  <Link to="/57directive/enquirepage" onClick={handleLinkClick}>Renovate Space</Link>
+                  <Link to="/57directive" onClick={handleLinkClick}>Renovate Space</Link>
                 </li>
                 <li>
                   <Link to="/academy" onClick={handleLinkClick}>Book A Carpentry Lesson</Link>
