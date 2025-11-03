@@ -2,9 +2,9 @@
 :root {
   /* Color Scheme - Standardized */
   --color-main: #63100d;           /* Maroon - main color */
-  --color-secondary: #f8d700;     /* Yellow - secondary */
-  --color-third: #800020;          /* Burgundy - third */
-  --color-last: #f8f3e7;           /* Beige - last */
+  --color-secondary: #cba847;      /* Yellow Gold - secondary */
+  --color-third: #421212;           /* Burgundy - third */
+  --color-last: #d8bf8b;            /* Beige - last */
   
   /* Text Colors - Only WHITE or BLACK */
   --text-white: #ffffff;

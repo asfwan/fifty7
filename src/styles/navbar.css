@@ -206,6 +206,63 @@ body, html {
 .top-item a { color:#fff; text-decoration:none; transition:0.3s ease; }
 .top-item a:hover { color:#fff; }
 
+/* Account dropdown menu */
+.top-item .dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  list-style: none;
+  padding: 0.5rem 0;
+  min-width: 200px;
+  z-index: 3000;
+  display: none;
+  flex-direction: column;
+  margin-top: 8px;
+}
+
+.top-item .dropdown li {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text-black);
+  font-family: "Angsana New", serif;
+  transition: background 0.2s ease;
+  text-align: left;
+}
+
+.top-item .dropdown li a {
+  color: var(--text-black);
+  text-decoration: none;
+  display: block;
+}
+
+.top-item .dropdown li:hover {
+  background: var(--color-last);
+}
+
+.top-item .dropdown li a:hover {
+  color: var(--color-main);
+}
+
+.top-item .dropdown .account-note {
+  font-size: 0.8rem;
+  color: var(--text-black);
+  font-family: "Angsana New", serif;
+  padding: 0.5rem 1rem;
+  cursor: default;
+  pointer-events: none;
+  border-top: 1px solid #eee;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+
+.top-item.open .dropdown {
+  display: flex;
+}
+
 /* mobile toggler */
 .navbar-toggler { display:none; font-size:1.5rem; background:none; border:none; color:#fff; cursor:pointer; z-index:1600; }
 
